@@ -14,6 +14,18 @@ display:flex;
 align-items:center;
 justify-content: center;
 `
+export const Title = styled.h1`
+    text-align:center;
+    font-size: 3rem;
+    font-family: sans-serif;
+    color:#333;
+`
+export const Paragraph = styled.p`
+    text-align:center;
+    font-size: 1rem;
+    font-family: sans-serif;
+    color:#333;
+`
 
 export const Input = styled.input`
 border:1px solid #ddd;

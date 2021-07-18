@@ -12,6 +12,9 @@ function App(props) {
         axios.get(`https://api.github.com/users/${usuario}/repos`)
             .then(response => {
                 const repositories = response.data;
+                if (repositories.length === 0) {
+                    return setErro(true)
+                };
                 const repositoriesName = [];
                 repositories.map((repository) => {
                     repositoriesName.push(repository.name);
@@ -28,6 +31,8 @@ function App(props) {
 
     return (
         <S.HomeContainer>
+            <S.Title>GammaGit</S.Title>
+            <S.Paragraph>Digite um nome de usuário do GitHub para ver os repositórios</S.Paragraph>
             <S.Content>
                 <S.Input className="usuarioInput" placeholder="Usuário" value={usuario} onChange={e => setUsuario(e.target.value)} />
                 <S.Button type="button" onClick={handlePesquisa}>Pesquisar</S.Button>
